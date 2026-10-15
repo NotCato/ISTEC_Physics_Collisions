@@ -1,3 +1,36 @@
 [gd_scene format=3 uid="uid://cp606m0pi6otd"]
 
+[ext_resource type="MeshLibrary" uid="uid://b66j80a7cfisw" path="res://tiles.tres" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dch33ta82w2cx" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://btvgjjtyo7g3m" path="res://scripts/player.gd" id="3_lnu2h"]
+
 [node name="Game" type="Node3D" unique_id=559845273]
+
+[node name="Map" type="Node3D" parent="." unique_id=1329013512]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map" unique_id=1704668484]
+transform = Transform3D(-0.99467415, -0.1025581, 0.010243766, 0, 0.09938833, 0.9950487, -0.103068426, 0.9897494, -0.098859, 0, 1.8978224, 0)
+shadow_enabled = true
+
+[node name="BaseCellSizeGrid1" type="GridMap" parent="Map" unique_id=1649702726]
+mesh_library = ExtResource("1_uwrxv")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 1, 1441807, 1, 1, 1441806, 2, 1, 23, 2, 0, 33, 2, 65535, 655408, 3, 65535, 655396, 4, 65535, 1048610, 5, 65535, 1048584, 6, 65535, 1048611, 8, 65535, 1048598, 7, 65535, 1048581, 9, 65535, 1048674, 10, 65535, 1048695, 11, 65535, 1048675, 12, 65535, 1048678, 13, 65535, 1048624, 13, 0, 48, 12, 0, 655408, 12, 1, 655396, 12, 2, 125, 12, 3, 655483, 12, 4, 655482, 12, 5, 52, 11, 5, 1441814, 10, 5, 1441843, 9, 5, 1441838, 9, 4, 655368, 9, 3, 1048599, 8, 3, 1048606, 7, 3, 1441833, 6, 3, 1048617, 5, 3, 1048585, 4, 3, 1441819)
+}
+
+[node name="AssetsGrid" type="GridMap" parent="Map" unique_id=581640799]
+mesh_library = ExtResource("1_uwrxv")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(4, 3, 1441813)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Player" parent="." unique_id=691247390 instance=ExtResource("2_yqjtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4389832, 0.6131157, 1.5079242)
+script = ExtResource("3_lnu2h")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=2024558641]
+transform = Transform3D(-0.019935999, 0.6683337, -0.7435944, 0, 0.7437422, 0.66846657, 0.9998013, 0.013326549, -0.014827244, -0.10849118, 0.24704176, -0.016042352)
+fov = 96.847046

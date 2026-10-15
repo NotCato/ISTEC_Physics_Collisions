@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dch33ta82w2cx"]
+
+[ext_resource type="ArrayMesh" uid="uid://ndljxbxr02eu" path="res://assets/ball-red.glb" id="1_4flbx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 0.034972418
+
+[node name="Player" type="RigidBody3D" unique_id=63618306]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=11907313]
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=837963138]
+mesh = ExtResource("1_4flbx")
